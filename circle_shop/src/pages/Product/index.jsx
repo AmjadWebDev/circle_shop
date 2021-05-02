@@ -1,60 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { productDetails } from '../../Redux/actions/ProductActions';
+import Spinner from '../../components/Spinner';
 import { Link } from 'react-router-dom';
 import { Main, Title, Details, Left, Mid, Right, SmTitle, MidUp, MidDown, MidDownR, MidDownL, PriceBox } from './style';
-import axios from 'axios';
+
 //import Category from "../../components/Category"
 
 const Product = ({ match }) => {
-  const [product, setProduct] = useState({});
-
+  const dispatch = useDispatch();
+  const fullProductDetails = useSelector((state) => state.fullProductDetails);
+  const { loading, error, product } = fullProductDetails;
   useEffect(() => {
-    const getProduct = async () => {
-      const { data } = await axios.get(`https://fakestoreapi.com/products/${match.params.id}`);
-      setProduct(data);
-    };
-    getProduct();
-  }, []);
+    dispatch(productDetails(match.params.id));
+  }, [dispatch,match]);
 
-  const { title, image, description, price,category } = product;
+  const { title, image, description, price, category } = product;
 
   return (
     <Main>
-      <Title>
-        <Link to="/">
-          <img alt="arrow" src="/arrow-left.png" />
-        </Link>
-        <h1>{title} </h1>
-      </Title>
-      <Details>
-        <Left>
-          <img alt="product" src={image} />
-        </Left>
-        <Mid>
-          <MidUp>
-            <SmTitle>Description</SmTitle>
-            <p>{description} </p>
-          </MidUp>
-          <MidDown>
-            <MidDownR>
-              <p>
-                <span>Price</span>(including VAT): {(price * 1.2).toFixed(2)} €
-              </p>
-            </MidDownR>
-            <MidDownL>
-              <SmTitle>Price</SmTitle>
-              <PriceBox>
-                <p>{price} </p>
-                <p>€</p>
-              </PriceBox>
-              <button>Update Product</button>
-            </MidDownL>
-          </MidDown>
-        </Mid>
-        <Right>
-          <SmTitle>Category</SmTitle>
-          <p>{category} </p>
-        </Right>
-      </Details>
+      {loading ? (
+        <Spinner />
+      ) : error ? (
+        <h3>{error} </h3>
+      ) : (
+        <>
+          <Title>
+            <Link to="/">
+              <img alt="arrow" src="/arrow-left.png" />
+            </Link>
+            <h1>{title} </h1>
+          </Title>
+          <Details>
+            <Left>
+              <img alt="product" src={image} />
+            </Left>
+            <Mid>
+              <MidUp>
+                <SmTitle>Description</SmTitle>
+                <p>{description} </p>
+              </MidUp>
+              <MidDown>
+                <MidDownR>
+                  <p>
+                    <span>Price</span>(including VAT): {(price * 1.2).toFixed(2)} €
+                  </p>
+                </MidDownR>
+                <MidDownL>
+                  <SmTitle>Price</SmTitle>
+                  <PriceBox>
+                    <p>{price} </p>
+                    <p>€</p>
+                  </PriceBox>
+                  <button>Update Product</button>
+                </MidDownL>
+              </MidDown>
+            </Mid>
+            <Right>
+              <SmTitle>Category</SmTitle>
+              <p>{category} </p>
+            </Right>
+          </Details>
+        </>
+      )}
     </Main>
   );
 };

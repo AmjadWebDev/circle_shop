@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Spinner from '../Spinner';
+import { listProducts } from '../../Redux/actions/ListProductsActions';
 import ProductBox from '../ProductBox';
 import { Table } from './style';
-import { Title, Cat, Price, Vat,Head } from '../ProductBox/style';
-import axios from 'axios';
+import { Title, Cat, Price, Vat, Head } from '../ProductBox/style';
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
   useEffect(() => {
-    const allProducts = async () => {
-      const { data } = await axios.get('https://fakestoreapi.com/products');
-      setProducts(data);
-    };
-    allProducts();
-  }, []);
+    dispatch(listProducts());
+  }, [dispatch]);
 
   return (
     <Table>
@@ -23,9 +23,7 @@ const ProductList = () => {
         <Price>Price</Price>
         <Vat>Price(including VAT)</Vat>
       </Head>
-      {products.map((p) => (
-        <ProductBox {...p} />
-      ))}
+      {loading ? <Spinner /> : error ? <h3>{error} </h3> : products.map((p) => <ProductBox {...p} />)}
     </Table>
   );
 };
