@@ -1,8 +1,8 @@
-import React from 'react'
-import {Box,Title,Cat,Price,Vat} from "./style"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Box, Title, Cat, Price, Vat } from './style';
 
-const ProductBox = ({title, category,price}) => {
-
+const ProductBox = ({ title, category, price,id }) => {
   const colorSwitch = (x) => {
     switch (x) {
       case "men's clothing":
@@ -18,15 +18,18 @@ const ProductBox = ({title, category,price}) => {
     }
   };
 
-  
   return (
-    <Box>
-      <Title>{title}</Title>
-      <Cat><span style={{ backgroundColor: colorSwitch(category), color:"white", padding:"6px", borderRadius:"25px" }}>{category}</span></Cat>
-      <Price>{price} €</Price>
-      <Vat>{(price * 1.2).toFixed(2)} €</Vat>
-    </Box>
-  )
-}
+    <Link to={`/product/${id}`} style={{ textDecoration: 'none' }}>
+      <Box>
+        <Title>{title}</Title>
+        <Cat>
+          <span style={{ backgroundColor: colorSwitch(category), color: 'white', padding: '6px', borderRadius: '25px' }}>{category}</span>
+        </Cat>
+        <Price>{price} €</Price>
+        <Vat>{(price * 1.2).toFixed(2)} €</Vat>
+      </Box>
+    </Link>
+  );
+};
 
-export default ProductBox
+export default ProductBox;

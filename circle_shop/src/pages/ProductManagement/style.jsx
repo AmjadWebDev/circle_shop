@@ -18,7 +18,7 @@ export const Main = styled.div`
   padding-bottom: 150px;
 `;
 export const Title = styled.div`
-  color: #6038ee;
+  color: #5542ff;
   font-family: 'Roboto', sans-serif;
   font-weight: bolder;
   font-size: 32px;

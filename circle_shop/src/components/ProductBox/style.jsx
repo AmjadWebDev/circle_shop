@@ -22,9 +22,10 @@ export const Box = styled.div`
 ;
 background-color:white;
 
+
 `;
 export const Head = styled.div`
-background-color: #6038ee;
+background-color: #5542ff;
   color:white;
   width: 100%;
   display: flex;
