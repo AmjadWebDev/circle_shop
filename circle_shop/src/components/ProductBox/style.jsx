@@ -4,6 +4,7 @@ export const Box = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: 5px 0;
   min-height:50px;
   font-family: 'Roboto', sans-serif;
@@ -30,6 +31,7 @@ background-color: #5542ff;
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: 5px 0;
   min-height:50px;
   font-family: 'Roboto', sans-serif;
@@ -55,6 +57,14 @@ export const Title = styled.p`
 export const Cat = styled.p`
   width: 20%;
   text-align:left;
+  select{
+    width:20px;
+    background-color: #5542ff;
+    color:white;
+    margin-left:5px;
+    border:transparent;
+    
+  }
 `;
 export const Price = styled.p`
   width: 15%;
@@ -63,4 +73,8 @@ export const Vat = styled.p`
   width: 15%;
   text-align:right;
   margin-right:15px;
+  span{
+    font-weight:lighter;
+    color: rgba(255, 255, 255,0.8)
+  }
 `;

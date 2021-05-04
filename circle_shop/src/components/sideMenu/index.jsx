@@ -1,18 +1,23 @@
-import React from 'react'
-import {Main} from "./style"
+import React from 'react';
+import { Main, Logo, Menu, Logout } from './style';
 
-const SideMenu=()=> {
+const SideMenu = () => {
   return (
     <Main>
-      <h3>Circle Products</h3>
-      <p>Dashboard</p>
-      <ul>
-        <li>Products management</li>
-        <li>Employees management</li>
-      </ul>
-      <p>Logout</p>
+      <Logo>
+        <h3>Circle Products</h3>
+        <img src="/white-circle.png" alt="logo" />
+      </Logo>
+      <Menu>
+        <p>Dashboard</p>
+        <p><span>&#9679;</span>Products management</p>
+        <p>Employees management</p>
+      </Menu>
+      <Logout>
+        <p>Logout</p>
+      </Logout>
     </Main>
-  )
-}
+  );
+};
 
-export default SideMenu
+export default SideMenu;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Spinner from '../Spinner';
 import { listProducts } from '../../Redux/actions/ListProductsActions';
@@ -7,6 +7,7 @@ import { Table } from './style';
 import { Title, Cat, Price, Vat, Head } from '../ProductBox/style';
 
 const ProductList = () => {
+  const [selectedOption, setSelectedOption] = useState("All");
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
@@ -19,11 +20,22 @@ const ProductList = () => {
     <Table>
       <Head>
         <Title>Product name</Title>
-        <Cat>Category</Cat>
+        <Cat>
+          Category
+          <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
+            <option value="All">All</option>
+            <option value="men's clothing">men's clothing</option>
+            <option value="women's clothing">women's clothing</option>
+            <option value="jewelery">jewelery</option>
+            <option value="electronics">electronics</option>
+          </select>
+        </Cat>
         <Price>Price</Price>
-        <Vat>Price(including VAT)</Vat>
+        <Vat>
+          Price <span>(including VAT)</span>
+        </Vat>
       </Head>
-      {loading ? <Spinner /> : error ? <h3>{error} </h3> : products.map((p) => <ProductBox {...p} />)}
+      {loading ? <Spinner /> : error ? <h3>{error} </h3> : (( selectedOption == 'All')?products.map((p) => <ProductBox {...p} />):products.filter((p) => p.category == selectedOption).map((p) => <ProductBox {...p} />))}
     </Table>
   );
 };

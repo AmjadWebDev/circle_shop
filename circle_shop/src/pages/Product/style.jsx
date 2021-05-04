@@ -94,7 +94,7 @@ export const MidDownL = styled.div`
     margin-top:25px;
   }
 `;
-export const PriceBox = styled.div`
+export const PriceBox = styled.input`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -102,7 +102,9 @@ export const PriceBox = styled.div`
   border: 2px solid #5542ff;
   border-radius: 5px;
   height: 30px;
-  p {
+  width: 90px;
+  color: #8f8f8f;
+  /* p {
     margin: 5px;
-  }
+  } */
 `;

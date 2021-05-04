@@ -4,15 +4,15 @@ const Category = ({ category }) => {
   const colorSwitch = (x) => {
     switch (x) {
       case "men's clothing":
-        return 'orange';
+        return '#ffa03b';
       case 'jewelery':
-        return 'green';
+        return '#1cc93e';
       case 'electronics':
-        return 'red';
+        return '#f03c42';
       case "women's clothing":
-        return 'gray';
+        return '#1089e6';
       default:
-        return 'white';
+        return 'gray';
     }
   };
 
