@@ -1,11 +1,12 @@
 import React from 'react';
 import { Switch, Main, Logo, Menu, Logout } from './style';
-import Burger from "../../layout/menuBurger/menuBurger"
+import Burger from '../../layout/menuBurger/menuBurger';
 
+// compenent of side Menu fixed
 const SideMenu = () => {
   return (
     <Switch>
-       <Burger  />
+      <Burger />
       <Main>
         <Logo>
           <h3>Circle Products</h3>

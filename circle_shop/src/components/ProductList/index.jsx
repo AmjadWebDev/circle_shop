@@ -7,9 +7,10 @@ import { Table } from './style';
 import { Title, Cat, Price, Vat, Head } from '../ProductBox/style';
 
 const ProductList = () => {
-  const [selectedOption, setSelectedOption] = useState("All");
+  const [selectedOption, setSelectedOption] = useState('All');
   const dispatch = useDispatch();
 
+  // get list of products from redux state
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
   useEffect(() => {
@@ -32,10 +33,11 @@ const ProductList = () => {
         </Cat>
         <Price>Price</Price>
         <Vat>
-          Price <br/><span>(including VAT)</span>
+          Price <br />
+          <span>(including VAT)</span>
         </Vat>
       </Head>
-      {loading ? <Spinner /> : error ? <h3>{error} </h3> : (( selectedOption === 'All')?products.map((p) => <ProductBox {...p} />):products.filter((p) => p.category === selectedOption).map((p) => <ProductBox {...p} />))}
+      {loading ? <Spinner /> : error ? <h3>{error} </h3> : selectedOption === 'All' ? products.map((p) => <ProductBox {...p} />) : products.filter((p) => p.category === selectedOption).map((p) => <ProductBox {...p} />)}
     </Table>
   );
 };

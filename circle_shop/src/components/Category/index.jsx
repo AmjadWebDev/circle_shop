@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+// component to change the background color of the tag category
+
 const Category = ({ category }) => {
   const colorSwitch = (x) => {
     switch (x) {

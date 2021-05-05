@@ -8,9 +8,11 @@ import Category from '../../components/Category';
 
 const Product = ({ match }) => {
   const dispatch = useDispatch();
+  // fetch data from product state
   const fullProductDetails = useSelector((state) => state.fullProductDetails);
   const { loading, error, product } = fullProductDetails;
 
+  // fetch data from product updated state
   const UpdateProduct = useSelector((state) => state.UpdateProduct);
 
   const { product: productUpdated } = UpdateProduct;
@@ -20,6 +22,7 @@ const Product = ({ match }) => {
   const [block, setBlock] = useState(false);
 
   useEffect(() => {
+    //verify if there is a price value in local storage
     if (localStorage.getItem(`newPrice_${match.params.id}`) !== null) {
       setNewPrice(localStorage.getItem(`newPrice_${match.params.id}`));
       setOldPrice(false);
@@ -39,6 +42,7 @@ const Product = ({ match }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    // update the product updated state
     dispatch(
       productUpdate({
         id: match.params.id,
@@ -71,7 +75,7 @@ const Product = ({ match }) => {
         <>
           <Title>
             <Link onClick={onBack} to="/">
-              <img alt="arrow" src="/arrow-left.png" />
+              <img alt="arrow" src="/arrow-left.svg" />
             </Link>
             <h1>{title} </h1>
           </Title>
@@ -81,7 +85,13 @@ const Product = ({ match }) => {
             </Left>
             <Mid>
               <MidUp>
-                <SmTitle>Description</SmTitle>
+                <div id="mobile">
+                  <div id="mobileCat">
+                    <Category category={category} />
+                  </div>
+                  <SmTitle>Description</SmTitle>
+                </div>
+
                 <p>{description} </p>
               </MidUp>
               <MidDown>
@@ -93,7 +103,7 @@ const Product = ({ match }) => {
                 <MidDownL>
                   <SmTitle>Price</SmTitle>
                   <form onSubmit={submitHandler}>
-                    <PriceBox disabled={block} type="text" value={oldPrice ? price + ' €' : newPrice} onChange={handleChange} />
+                    <PriceBox disabled={block} type="text" value={oldPrice ? price + '        €' : newPrice} onChange={handleChange} />
                     <button disabled={block} type="submit">
                       Update Product
                     </button>

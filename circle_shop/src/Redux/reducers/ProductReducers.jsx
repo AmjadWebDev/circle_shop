@@ -1,6 +1,8 @@
-import {  PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL } from "../types"
+import { PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL } from '../types';
 
-const productReducer = (state={product:{}}, action)=>{
+// reducers of single Product
+
+const productReducer = (state = { product: {} }, action) => {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
       return {
@@ -20,6 +22,6 @@ const productReducer = (state={product:{}}, action)=>{
     default:
       return state;
   }
-}
+};
 
-export default productReducer
+export default productReducer;

@@ -7,4 +7,5 @@ export const Loading = styled.div`
     margin: 40px auto;
     display: block;
   }
+  margin: 0 auto;
 `;

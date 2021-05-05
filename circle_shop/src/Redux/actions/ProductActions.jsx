@@ -1,6 +1,8 @@
 import { PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL, PRODUCT_UPDATE_REQUEST, PRODUCT_UPDATE_SUCCESS, PRODUCT_UPDATE_FAIL, PRODUCT_UPDATE_RESET } from '../types';
 import axios from 'axios';
 
+// fetch a product from API
+
 export const productDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
@@ -18,11 +20,11 @@ export const productDetails = (id) => async (dispatch) => {
     });
   }
 };
-
+// Update  a product in API
 export const productUpdate = (product) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_UPDATE_REQUEST });
-    
+
     const { data } = await axios.put(`https://fakestoreapi.com/products/${product.id}`, product);
 
     dispatch({
@@ -30,9 +32,8 @@ export const productUpdate = (product) => async (dispatch) => {
       payload: data,
     });
     dispatch({
-      type:PRODUCT_UPDATE_RESET
-      
-    })
+      type: PRODUCT_UPDATE_RESET,
+    });
   } catch (error) {
     dispatch({
       type: PRODUCT_UPDATE_FAIL,

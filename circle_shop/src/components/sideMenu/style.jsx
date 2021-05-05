@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { device } from '../../layout/Devices.style';
 
-export const Switch = styled.div`
- 
-`;
+export const Switch = styled.div``;
 export const Main = styled.div`
-  background-color: #5542ff;
+  background-color: #564aff;
   color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -21,13 +19,13 @@ export const Main = styled.div`
   @media ${device.desktop} {
     width: 200px;
   }
-	@media ${device.small_screen} {
+  @media ${device.small_screen} {
     width: 180px;
   }
-	@media ${device.tablet} {
+  @media ${device.tablet} {
     display: none;
   }
-	@media ${device.mobile} {
+  @media ${device.mobile} {
     display: none;
   }
 `;
@@ -43,13 +41,12 @@ export const Logo = styled.div`
     height: 60px;
     margin-right: 10px;
   }
-	@media ${device.small_screen} {
-    font-size:15px;
-		img {
-    width: 50px;
-    height: 50px;
-    
-  }
+  @media ${device.small_screen} {
+    font-size: 15px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
   }
 `;
 export const Menu = styled.div`
@@ -72,7 +69,7 @@ export const Menu = styled.div`
     font-size: 12px;
     padding-bottom: 15px;
   }
-	@media ${device.small_screen} {
+  @media ${device.small_screen} {
     margin-top: 60px;
     font-size: 11px;
     padding-bottom: 12px;
@@ -87,7 +84,7 @@ export const Logout = styled.div`
     font-size: 12px;
     padding-top: 20px;
   }
-	@media ${device.small_screen} {
+  @media ${device.small_screen} {
     font-size: 11px;
     padding-top: 18px;
   }

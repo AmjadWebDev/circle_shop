@@ -1,15 +1,17 @@
-import {  PRODUCT_UPDATE_REQUEST,PRODUCT_UPDATE_SUCCESS,PRODUCT_UPDATE_FAIL,PRODUCT_UPDATE_RESET } from "../types"
+import { PRODUCT_UPDATE_REQUEST, PRODUCT_UPDATE_SUCCESS, PRODUCT_UPDATE_FAIL, PRODUCT_UPDATE_RESET } from '../types';
 
-const productUpdateReducer = (state={product:{}}, action)=>{
+// reducers update single Product
+
+const productUpdateReducer = (state = { product: {} }, action) => {
   switch (action.type) {
     case PRODUCT_UPDATE_REQUEST:
       return {
-        loading: true
+        loading: true,
       };
     case PRODUCT_UPDATE_SUCCESS:
       return {
         loading: false,
-        success:true,
+        success: true,
         product: action.payload,
       };
     case PRODUCT_UPDATE_FAIL:
@@ -19,11 +21,11 @@ const productUpdateReducer = (state={product:{}}, action)=>{
       };
     case PRODUCT_UPDATE_RESET:
       return {
-        product:{}
-        }
+        product: {},
+      };
     default:
       return state;
   }
-}
+};
 
-export default productUpdateReducer
+export default productUpdateReducer;

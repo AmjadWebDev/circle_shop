@@ -50,7 +50,7 @@ export const StyledBurgerMenu = styled.div`
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #5542ff;
+  background: #564AFF;
 }
 
 /* Position and sizing of clickable cross button */
@@ -66,7 +66,7 @@ export const StyledBurgerMenu = styled.div`
 
 /* General sidebar styles */
 .bm-menu {
-  background: #5542ff;
+  background: #564AFF;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }

@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import { StyledBurgerMenu, Logo } from './MenuBurger.style';
 
-export default function Burger() {
+// menu-burger , used react-burger-menu npm backage
+
+const Burger = () => {
   return (
     <StyledBurgerMenu>
       <Menu left width={'180px'}>
@@ -17,4 +19,5 @@ export default function Burger() {
       </Menu>
     </StyledBurgerMenu>
   );
-}
+};
+export default Burger;
