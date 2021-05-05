@@ -21,7 +21,7 @@ const ProductList = () => {
       <Head>
         <Title>Product name</Title>
         <Cat>
-          Category
+          <h5>Category</h5>
           <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
             <option value="All">All</option>
             <option value="men's clothing">men's clothing</option>
@@ -32,10 +32,10 @@ const ProductList = () => {
         </Cat>
         <Price>Price</Price>
         <Vat>
-          Price <span>(including VAT)</span>
+          Price <br/><span>(including VAT)</span>
         </Vat>
       </Head>
-      {loading ? <Spinner /> : error ? <h3>{error} </h3> : (( selectedOption == 'All')?products.map((p) => <ProductBox {...p} />):products.filter((p) => p.category == selectedOption).map((p) => <ProductBox {...p} />))}
+      {loading ? <Spinner /> : error ? <h3>{error} </h3> : (( selectedOption === 'All')?products.map((p) => <ProductBox {...p} />):products.filter((p) => p.category === selectedOption).map((p) => <ProductBox {...p} />))}
     </Table>
   );
 };

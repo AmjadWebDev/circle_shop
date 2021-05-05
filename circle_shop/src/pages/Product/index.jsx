@@ -25,7 +25,7 @@ const Product = ({ match }) => {
       setOldPrice(false);
       setBlock(true);
     }
-  }, []);
+  }, [match.params.id]);
 
   useEffect(() => {
     dispatch(productDetails(match.params.id));

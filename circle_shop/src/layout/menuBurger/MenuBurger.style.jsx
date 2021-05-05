@@ -1,6 +1,21 @@
 import styled from "styled-components";
 import { device } from "../Devices.style"
 
+export const Logo = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 30px auto;
+  h3{
+    font-size: 1em;
+    margin-bottom:50px;
+  }
+  
+	
+  
+`;
 export const StyledBurgerMenu = styled.div`
 @media ${device.larg} {
     display: none;

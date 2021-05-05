@@ -10,11 +10,11 @@ const ProductBox = ({ title, category, price,id }) => {
     <Link to={`/product/${id}`} style={{ textDecoration: 'none' }}>
       <Box>
         <Title>{title}</Title>
-        <Cat>
-          <Category category={category} />
+        <Cat >
+          <Category  category={category} />
         </Cat>
         <Price>{price} €</Price>
-        <Vat>{(price * 1.2).toFixed(2)} €</Vat>
+        <Vat >{(price * 1.2).toFixed(2)} €</Vat>
       </Box>
     </Link>
   );
