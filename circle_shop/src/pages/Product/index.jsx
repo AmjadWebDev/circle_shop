@@ -103,7 +103,7 @@ const Product = ({ match }) => {
                 <MidDownL>
                   <SmTitle>Price</SmTitle>
                   <form onSubmit={submitHandler}>
-                    <PriceBox disabled={block} type="text" value={oldPrice ? price + '        €' : newPrice} onChange={handleChange} />
+                    <PriceBox disabled={block} type="text" value={oldPrice ? price : newPrice} onChange={handleChange} />
                     <button disabled={block} type="submit">
                       Update Product
                     </button>
